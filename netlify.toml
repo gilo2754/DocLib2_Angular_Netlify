@@ -1,17 +1,16 @@
 [build]
   command="ng build"
-  publish="dist/angular-quickstart"
+  publish="dist/"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-[[plugins]]
-  package = "netlify-plugin-cypress"
+[build.environment]
+  NODE_VERSION = "14.20.1"
 
-  [plugins.inputs.postBuild]
-    enable = true
 
-  [plugins.inputs]
-    enable = false
+
+
+
