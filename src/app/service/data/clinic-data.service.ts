@@ -26,18 +26,18 @@ export class ClinicDataService {
   }
 
   // deleteTodo(username, id){
-  deleteClinic(id){
+  deleteClinic(id: any){
     return this.http.delete(`${API_URL}/${OBJECT}/${id}`);
   }
 
   //retrieveTodo(username, id){
-    retrieveClinic(id){ 
+    retrieveClinic(id: number){ 
   //return this.http.get<Todo>(`${API_URL}/users/${username}/todos/${id}`);
       return this.http.get<Clinic>(`${API_URL}/${OBJECT}/${id}`);
   }
 
 //  updateTodo(username, id, todo){
-  updateClinic(id, clinic){
+  updateClinic(id: number, clinic: Clinic){
     console.log(`update ${id}`)
 return this.http.put(
 //          `${API_URL}/users/${username}/todos/${id}`
@@ -46,7 +46,7 @@ return this.http.put(
   }
 
 //  createTodo(username, todo){
-    createClinic(clinic){
+    createClinic(clinic: Clinic){
       console.log(`${OBJECT} created`)
       console.log(clinic)
     return this.http.post(

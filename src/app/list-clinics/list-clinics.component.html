@@ -1,0 +1,46 @@
+<h1> Clinics </h1>
+
+<div class="alert alert-warning" *ngIf="message">{{message}}</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <label for="speciality">Filter by Speciality:</label>
+    <select class="form-control" [(ngModel)]="selectedSpeciality" name="selectedSpeciality" id="selectedSpeciality">
+      <option *ngFor="let option of specialities" [value]="option">{{option}}</option>
+    </select>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row" *ngIf="clinics.length > 0; else noClinicsMessage">
+    <ng-container *ngFor="let clinic of clinics | specialityFilter: selectedSpeciality">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{clinic.clinic_description}}</h5>
+            <p class="card-text">Phone: {{clinic.clinic_phone_number}}</p>
+            <p class="card-text">Speciality: {{clinic.speciality}}</p>
+            <p class="card-text">State: {{clinic.clinic_state}}</p>
+            <button class="btn btn-success">Crear cita</button>
+            <button (click)="updateClinic(clinic.id)" class="btn btn-success">Editar</button>
+            <button (click)="deleteClinic(clinic.id)" class="btn btn-warning">Borrar</button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <ng-template #noClinicsMessage>
+    <div class="row">
+      <div class="col-md-12">
+        <p class="text-center">Por el momento no hay clinicas</p>
+      </div>
+    </div>
+  </ng-template>
+
+  <div class="row mt-3">
+    <div class="col-md-12">
+      <button (click)="addClinic()" class="btn btn-success">Add</button>
+    </div>
+  </div>
+</div>
