@@ -7,11 +7,13 @@ const OBJECT ='clinic';
 
 export class Clinic {
   constructor(
-    public id: number,
+    public clinic_id: number,
+    public clinic_name: string,
     public clinic_description: string,
     public clinic_phone_number: string,
     public speciality: string,
-    public clinic_state: string
+    public clinic_state: string,
+    public clinic_address: string,
   ){
 
   }

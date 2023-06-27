@@ -1,4 +1,4 @@
-<H1>Clinic</H1>
+<H1>Registrar clinica nueva</H1>
 
 <div class="container">
   <div class="alert alert-warning" *ngIf="clinicForm.dirty && clinicForm.invalid">Enter valid values</div>
@@ -6,15 +6,24 @@
   
   <form (ngSubmit)="!clinicForm.invalid && saveClinic()" #clinicForm="ngForm">
     <fieldset class="form-group">
-      <label>Description</label>
+      <label>Nombre de la clínica</label>
+      <input type="text" #clinic_name="ngModel"
+             [ngModel]="clinic.clinic_name"
+             (ngModelChange)="clinic.clinic_name = $event"
+             class="form-control" name="clinic_name" required="required" maxlength="30"
+             placeholder="Nombre de la clínica">
+    </fieldset>
+
+    <fieldset class="form-group">
+      <label>Descripción</label>
       <input type="text" #description="ngModel" 
             [(ngModel)]="clinic.clinic_description" class="form-control" 
-                name="description" required="required" minlength="5"
+                name="description"  minlength="5"
                 placeholder="Test clinic">
     </fieldset>
 
     <fieldset class="form-group">
-        <label>clinic_phone_number</label>
+        <label>Número telefónico</label>
         <input type="text" #clinic_phone_number="ngModel"
         [ngModel]="clinic.clinic_phone_number"
         (ngModelChange)="clinic.clinic_phone_number = $event"
@@ -22,10 +31,15 @@
         placeholder="012345" >
     </fieldset>
 
-    
-
+    <fieldset class="form-group">
+      <label>Ubicación</label>
+      <input type="text" #clinic_address="ngModel" [ngModel]="clinic.clinic_address"
+        (ngModelChange)="clinic.clinic_address = $event" class="form-control" name="clinic_address"
+        required="required" maxlength="100" placeholder="Avenida Santa Maria 456">
+    </fieldset>
+     
     <label>
-      Speciality:
+      Especialidad:
       <select [(ngModel)]="clinic.speciality" name="speciality" id="speciality">
         <option *ngFor="let option of specialities" [value]="option">{{option}}</option>
       </select>
@@ -34,13 +48,13 @@
     
 
     <label>
-      State:
+      Estado:
       <select [(ngModel)]="clinic.clinic_state" name="clinic_state">
         <option *ngFor="let state of  ['ACTIVE','INACTIVE','IN_REVIEW']" [value]="state">{{state}}</option>
       </select>
     </label>
     
-    <button type="submit" class="btn btn-success">Save</button>
+    <button type="submit" class="btn btn-success">Guardar</button>
   </form>  
 
 </div>

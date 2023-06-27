@@ -28,7 +28,7 @@ export class ClinicComponent implements OnInit {
     
     this.id = this.route.snapshot.params['id'];
     
-    this.clinic = new Clinic(this.id,'New clinic','1234', 'CARDIOLOGIA','IN_REVIEW');
+    this.clinic = new Clinic(this.id,'Clinic name','Clinic desc', '1234', 'CARDIOLOGIA','IN_REVIEW', 'Santa Tecla 5');
     
     if(this.id!=-1) {
       this.clinicService.retrieveClinic(this.id)
