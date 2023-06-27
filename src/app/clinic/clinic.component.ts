@@ -28,7 +28,7 @@ export class ClinicComponent implements OnInit {
     
     this.id = this.route.snapshot.params['id'];
     
-    this.clinic = new Clinic(this.id,'Clinic name','Clinic desc', '1234', 'CARDIOLOGIA','IN_REVIEW', 'Santa Tecla 5');
+    this.clinic = new Clinic('Clinic name','Clinic desc', '1234', 'CARDIOLOGIA','IN_REVIEW', 'Santa Tecla 5', this.id);
     
     if(this.id!=-1) {
       this.clinicService.retrieveClinic(this.id)
@@ -44,7 +44,7 @@ export class ClinicComponent implements OnInit {
     if(Number(this.id) === -1) {
     // Taking the id out, because this will auto. generated
       const createdClinic = this.clinic;
-      //delete createdClinic.id;
+      delete createdClinic.clinic_id;
      this.clinicService.createClinic(createdClinic)
           .subscribe (
             data => {
