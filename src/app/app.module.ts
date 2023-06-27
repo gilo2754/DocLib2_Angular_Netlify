@@ -9,6 +9,7 @@ import { FilterPipe } from './pipes/speciality-filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ClinicComponent } from './clinic/clinic.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ClinicComponent } from './clinic/clinic.component';
     ListClinicsComponent,
     FilterPipe,
     ClinicComponent,
+    WelcomeComponent
 
 
   ],

@@ -13,6 +13,7 @@ export class WelcomeDataService {
   constructor(
     private http:HttpClient
   ) { }
+  /*
 
   executeHelloWorldBeanService() {
     return this.http.get<HelloWorldBean>('http://localhost:8080/hello-world-bean');
@@ -31,7 +32,7 @@ export class WelcomeDataService {
       );
     //console.log("Execute Hello World Bean Service")
   }
-
+*/
   // createBasicAuthenticationHttpHeader() {
   //   let username = 'admin'
   //   let password = 'dummy'
