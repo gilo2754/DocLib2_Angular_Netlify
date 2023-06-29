@@ -43,3 +43,7 @@ Thumbs.db
 
 # Local Netlify folder
 .netlify
+
+# Ignorar archivo environment.prod.ts
+/src/environments/environment.prod.ts
+
